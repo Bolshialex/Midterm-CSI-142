@@ -22,16 +22,16 @@
         <aside id="subscribe-section">
             <div id="subscribe-form">
                 <h3>Sign Up For Job Alerts!</h3>
-                <form id="subscription-form" onsubmit="return validatForm()" action="subscribed.html" method="get">
+                <form id="subscription-form" onsubmit="return validateForm()" action="subscribed.html" method="get">
                     <input type="text" id="name" name="name" placeholder="Name" required>
                     <input type="email" id="email" name="email" placeholder="Email" required>
                     <input type="text" id="location" name="location" placeholder="Location" required>
                     <label>
                         <input type="checkbox" id="terms" name="terms">
-                        I agree to the terms of service and privacy policy.
+                          I agree to the terms of service and privacy policy.
                     </label>
                     <button type="button" onclick="subscribe()">Send Me Jobs</button>
-                </form>
+                </form> 
             </div>
         </aside>
     </main>
