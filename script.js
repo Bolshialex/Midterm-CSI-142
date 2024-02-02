@@ -17,13 +17,8 @@ TODO
 7.Test all scenarios that are possible and edge cases.
 */
 
-/*
-Questions box
 
-There is a onsubmit but no submit button only type button
-Can we get rid of the required attribute for the inputs? Since we are validating it our selves?
 
-*/
 
 let jobListings = [
   {
