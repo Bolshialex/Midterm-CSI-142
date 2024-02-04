@@ -19,7 +19,7 @@ TODO
 
 
 
-
+//CHANGE THE DATE
 let jobListings = [
   {
     title: "Cloud infrastructure architect",
@@ -85,6 +85,7 @@ let jobListings = [
 
 document.addEventListener("DOMContentLoaded", popJobListings());
 
+
 function popJobListings() {
   let jobListingsContainer = document.getElementById("job-listings");
 
@@ -107,11 +108,22 @@ function validateForm() {
   const locationInput = document.getElementById("location");
   const checkboxInput = document.getElementById("terms");
 
-  if (
-    nameInput.value === "" ||
-    emailInput.value === "" ||
-    location.value === ""
-  ) {
-    alert("Please Enter a Value");
+  
+}
+
+function filterJobs(){
+  let divElements = document.getElementsByClassName('job');
+  let searchInput = document.getElementById('search-input').value;
+ searchInput = searchInput.toLowerCase();
+
+  console.log(searchInput);
+
+  for (let i = 0; i < jobListings.length; i++) {
+    // if(!){
+    //   divElements[i].remove();
+    // }
+    jobListings[i].title.includes(searchInput) ? null : divElements[i].remove();
   }
 }
+
+
