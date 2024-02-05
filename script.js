@@ -173,13 +173,13 @@ function popJobListings() {
 
 
 
-
 function validateForm() {
+
   const nameInput = document.getElementById("name").value;
   const emailInput = document.getElementById("email").value;
   const locationInput = document.getElementById("location").value;
-  const checkboxInput = document.getElementById("terms").value;
-  
+  const checkboxInput = document.getElementById("terms");
+
   let validated = true;
 
   if (nameInput === "") {
@@ -206,6 +206,11 @@ function validateForm() {
     validated = false;
   }
 
+  if (checkboxInput.checked === false){
+    alert("You must agree to the policies.");
+    validated = false;
+  }
+
   return validated;
 }
 
@@ -217,10 +222,30 @@ function validateForm() {
 //   return re.test(email);
 // }
 
+function clearInput(){
+  let validate = validateForm(); 
+  if(validate === true){
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('location').value = '';
+    document.getElementById('terms').checked = false;
+    return true;
+  }else{
+    return false;
+  }
+}
+
+
+//maybe use a callback to delay the clear so that you can send data over
 function subscribe() {
-
- let validation = validateForm();
-
+  let isCleared = clearInput();
+  console.log(document.getElementById('name').value);
+  if(isCleared === true){
+    alert(`Name: ${document.getElementById('name').value}\n
+    Email: ${document.getElementById('email').value}\n
+    Location: ${document.getElementById('location').value}\n
+    Is Checked: ${document.getElementById('terms').checked}`);
+  }
 }
 
 
