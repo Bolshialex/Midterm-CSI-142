@@ -17,8 +17,6 @@ TODO
 7.Test all scenarios that are possible and edge cases.
 */
 
-
-
 //CHANGE THE DATE
 let jobListings = [
   {
@@ -86,6 +84,13 @@ let jobListings = [
 document.addEventListener("DOMContentLoaded", popJobListings());
 
 
+
+
+
+
+
+
+
 function popJobListings() {
   let jobListingsContainer = document.getElementById("job-listings");
 
@@ -102,28 +107,156 @@ function popJobListings() {
   }
 }
 
-function validateForm() {
-  const nameInput = document.getElementById("name");
-  const emailInput = document.getElementById("email");
-  const locationInput = document.getElementById("location");
-  const checkboxInput = document.getElementById("terms");
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.getElementById('subscription-form').addEventListener('click',function(e) {
+//   e.preventDefault();
+
+//   const nameInput = document.getElementById("name").value;
+//   const emailInput = document.getElementById("email").value;
+//   const locationInput = document.getElementById("location").value;
+//   const checkboxInput = document.getElementById("terms").value;
   
+//   let validated = true;
+
+//   if (nameInput === "") {
+//     alert("Please enter a value for Name");
+//     validated = false;
+//   } else if (!isAlph(nameInput)) {
+//     alert("Please make a valid input. (no special characters and numbers)");
+//     validated = false;
+//   }
+
+//   if (emailInput === "") {
+//     alert("Please enter a valid email.");
+//     validated = false;
+//   }else if (!validateEmail(emailInput)) {
+//     alert("Please enter a valid email.");
+//     validated = false;
+//   }
+
+//   if (locationInput === ""){
+//     alert("Please enter a location.");
+//     validateForm = false;
+//   }else if (!isAlph(locationInput)){
+//     alert("Please make a valid input. (no special characters and numbers)");
+//     validated = false;
+//   }
+
+//   return validateForm;
+// })
+
+
+
+
+
+
+
+function validateForm() {
+  const nameInput = document.getElementById("name").value;
+  const emailInput = document.getElementById("email").value;
+  const locationInput = document.getElementById("location").value;
+  const checkboxInput = document.getElementById("terms").value;
+  
+  let validated = true;
+
+  if (nameInput === "") {
+    alert("Please enter a value for Name");
+    validated = false;
+  } else if (!/^[a-zA-Z-' ]+$/.test(nameInput)) {
+    alert("Please make a valid input. (no special characters and numbers)");
+    validated = false;
+  }
+
+  if (emailInput === "") {
+    alert("Please enter a valid email.");
+    validated = false;
+  }else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+    alert("Please enter a valid email.");
+    validated = false;
+  }
+
+  if (locationInput === ""){
+    alert("Please enter a location.");
+    validated = false;
+  }else if (!/^[a-zA-Z-' ]+$/.test(locationInput)){
+    alert("Please make a valid input. (no special characters and numbers)");
+    validated = false;
+  }
+
+  return validated;
 }
 
-function filterJobs(){
-  let divElements = document.getElementsByClassName('job');
-  let searchInput = document.getElementById('search-input').value;
- searchInput = searchInput.toLowerCase();
+// function isAlph(element) {
+//   return /^[a-zA-Z-' ]+$/.test(element);
+// }
+// function validateEmail(email){
+//   let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   return re.test(email);
+// }
 
-  console.log(searchInput);
+function subscribe() {
+
+ let validation = validateForm();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function filterJobs() {
+  let divElements = document.getElementsByTagName("div");
+  let searchInput = document.getElementById("search-input").value;
+  searchInput = searchInput.toLowerCase();
 
   for (let i = 0; i < jobListings.length; i++) {
-    // if(!){
-    //   divElements[i].remove();
-    // }
-    jobListings[i].title.includes(searchInput) ? null : divElements[i].remove();
+    if (!jobListings[i].title.toLowerCase().includes(searchInput)) {
+      divElements[i].style.display = "none";
+    } else {
+      divElements[i].style.display = "block";
+    }
   }
 }
-
-
