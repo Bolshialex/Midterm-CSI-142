@@ -198,6 +198,8 @@ function validateForm() {
     validated = false;
   }
 
+
+  //maybe zipcode
   if (locationInput === ""){
     alert("Please enter a location.");
     validated = false;
@@ -236,15 +238,20 @@ function clearInput(){
 }
 
 
-//maybe use a callback to delay the clear so that you can send data over
+
 function subscribe() {
+  let nameValue = document.getElementById('name').value;
+  let documentValue = document.getElementById('email').value;
+  let locationValue = document.getElementById('location').value
+  let isChecked = document.getElementById('terms').checked;
+
   let isCleared = clearInput();
   console.log(document.getElementById('name').value);
   if(isCleared === true){
-    alert(`Name: ${document.getElementById('name').value}\n
-    Email: ${document.getElementById('email').value}\n
-    Location: ${document.getElementById('location').value}\n
-    Is Checked: ${document.getElementById('terms').checked}`);
+    alert(`Name: ${nameValue}\n
+    Email: ${documentValue}\n
+    Location: ${locationValue}\n
+    Is Checked: ${isChecked}`);
   }
 }
 
